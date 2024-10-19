@@ -8,13 +8,13 @@ import BowserPlugin, { PluginOptions } from '../index';
 
 ////////////////////////////////
 
-async function prepareServer(): Promise<FastifyInstance> {
+async function prepareServer(cache): Promise<FastifyInstance> {
 	const server = Fastify({
 		logger: false,
 		ignoreTrailingSlash: true,
 	});
 
-	await server.register(BowserPlugin);
+	await server.register(BowserPlugin, { cache: cache, cacheLimit: 200 });
 
 	server.get(`/test`, function (request, response) {
 		response.send({
@@ -34,8 +34,35 @@ async function prepareServer(): Promise<FastifyInstance> {
 
 ////////////////////////////////
 
-test('Test', async () => {
-	const server = await prepareServer();
+test('Test With Enabled Cache', async () => {
+	const server = await prepareServer(true);
+
+	try {
+		const result_test = await fetch(`http://127.0.0.1:8080/test`, {
+			method: `GET`,
+			headers: {
+				[`User-Agent`]: `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36`
+			}
+		}).then(async o => await o.json());
+
+		assert.equal(result_test, {
+			test: true,
+			useragent: {
+				browser: { name: 'Chrome', version: '129.0.0.0' },
+				os: { name: 'Windows', version: 'NT 10.0', versionName: '10' },
+				platform: { type: 'desktop' },
+				engine: { name: 'Blink' }
+			}
+		});
+	} catch (e) {
+		throw e;
+	} finally {
+		server.close();
+	}
+});
+
+test('Test With Disabled Cache', async () => {
+	const server = await prepareServer(false);
 
 	try {
 		const result_test = await fetch(`http://127.0.0.1:8080/test`, {

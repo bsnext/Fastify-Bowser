@@ -1,21 +1,23 @@
 declare module "fastify" {
     interface FastifyRequest {
         useragent: {
-            ua: string;
             browser: {
-                name: string | undefined;
-                version: string | undefined;
+                name?: string;
+                version?: string;
             };
             os: {
-                name: string | undefined;
-                version: string | undefined;
-                versionName: string | undefined;
+                name?: string;
+                version?: string;
+                versionName?: string;
             };
             platform: {
-                type: string | undefined;
+                type?: string;
+                vendor?: string;
+                model?: string;
             };
             engine: {
-                name: string | undefined;
+                name?: string;
+                version?: string;
             };
         };
     }

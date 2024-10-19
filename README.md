@@ -1,7 +1,7 @@
 # Fastify-Bowser
 ![Build & Test](https://github.com/bsnext/fastify-bowser/actions/workflows/build_n_test.yml/badge.svg)
 ![Node.JS Supported](https://badgen.net/static/Node.JS/%3E=19.0.0/green)
-![Fastify Supported](https://badgen.net/static/Fastify/%3E=14/green)
+![Fastify Supported](https://badgen.net/static/Fastify/%3E=4.14.0/green)
 ![Install Size](https://badgen.net/packagephobia/install/@bsnext/fastify-bowser)
 ![Dependencies](https://badgen.net/bundlephobia/dependency-count/@bsnext/fastify-bowser)
 ![License](https://badgen.net/static/license/MIT/blue)
@@ -33,10 +33,11 @@ await server.register(FastifyBowser, {
 	cache: boolean = false; 
 
  	// Cache limit. Will be automatically purged, if cache size reach limit.
-	cacheLimit: number = 100;
+	cacheLimit?: number = 100;
 
-	// Automatically cache purge interval in milliseconds.
-	cachePurgeTime: number = 60 * 5;
+	// Automatically cache purge interval in seconds.
+	// Disabled by default
+	cachePurgeTime?: number;
 });
 
 ```

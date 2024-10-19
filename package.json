@@ -1,6 +1,6 @@
 {
 	"name": "@bsnext/fastify-bowser",
-	"version": "1.0.0",
+	"version": "1.2.0",
 	"description": "A plugin for Fastify that adds the 'request.useragent' property to get header 'user-agent' parsed data.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
