@@ -1,0 +1,44 @@
+{
+	"name": "@bsnext/fastify-bowser",
+	"version": "1.0.0",
+	"description": "A plugin for Fastify that adds the 'request.useragent' property to get header 'user-agent' parsed data.",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"start": "node dist/index.js",
+		"build": "tsc --project tsconfig.json",
+		"watch": "tsc --watch",
+		"test": "node dist/test/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bsnext/Fastify-Bowser"
+	},
+	"keywords": [
+		"fastify",
+		"plugin",
+		"useragent",
+		"ua",
+		"user",
+		"agent",
+		"parser",
+		"bowser"
+	],
+	"bugs": {
+		"url": "https://github.com/bsnext/Fastify-Bowser/issues"
+	},
+	"homepage": "https://github.com/bsnext/Fastify-Bowser#readme",
+	"author": "SalwadoR",
+	"type": "commonjs",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^22.7.5",
+		"fastify": "^4.14.0",
+		"typescript": "^5.6.3",
+		"uvu": "^0.5.6"
+	},
+	"dependencies": {
+		"bowser": "^2.11.0",
+		"fastify-plugin": "^5.0.1"
+	}
+}

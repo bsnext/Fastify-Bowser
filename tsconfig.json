@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": false,
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": "./",
+  },
+  "include": [
+    "./src/**/**.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+  ]
+}
