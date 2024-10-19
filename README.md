@@ -29,10 +29,10 @@ const { default: FastifyBowser } = require(`@bsnext/fastify-bowser`); // CJS
 
 const server = Fastify();
 await server.register(FastifyBowser, {
-	// Use parsed user-agent cache
+	// Use parsed user-agent LRU cache
 	cache: boolean = false; 
 
- 	// Cache limit. Will be automatically purged, if cache size reach limit.
+ 	// Cache LRU max size.
 	cacheLimit?: number = 100;
 
 	// Automatically cache purge interval in seconds.
