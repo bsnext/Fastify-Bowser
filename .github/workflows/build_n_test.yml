@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         node: [ 23, 22, 21, 20, 19 ]
-        fastify: ['4.14.0', '4.14', '4.15', '4.16', '5', '5.1']
+        fastify: ['4.14.0', '4.14', '4.15', '4.16', '5', '5.1', '5.2']
     
     steps:
       - name: Basic (1/1) - Checkout Project
