@@ -1,4 +1,4 @@
-import { FastifyRequest } from "fastify";
+import type { FastifyRequest } from "fastify";
 import FastifyPlugin from "fastify-plugin";
 
 import * as Bowser from "bowser";
